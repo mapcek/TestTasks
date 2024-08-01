@@ -1,4 +1,6 @@
-with open(input(), "r") as f:
+import sys
+
+with open(sys.argv[1], "r") as f:
     nums = [int(num) for num in f.read().split()]
 
 

@@ -1,5 +1,6 @@
-n = int(input())
-m = int(input())
+import sys
+
+n, m = map(int, sys.argv[1:])
 
 step = 1
 
@@ -9,4 +10,3 @@ while True:
     step = 1 + (step + m - 2) % n
     if step == 1:
         break
-print()

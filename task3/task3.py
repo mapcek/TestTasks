@@ -1,5 +1,7 @@
 import json
 
+values_file, tests_file, report_file = input(), input(), input()
+
 
 def check_values(tests):
     if "values" in tests:
@@ -15,13 +17,13 @@ def rewrite(tests, values):
                 rewrite(check_values(test), values)
 
 
-with open(input("Путь к файлу с результатами тестов: "), "r") as f:
+with open(values_file, "r") as f:
     values = json.load(f)["values"]
-with open(input("Путь к файлу со структурой тестов: "), "r") as f:
+with open(tests_file, "r") as f:
     tests = json.load(f)
 
 
-with open(input("Путь к формируемому файлу: "), "w") as f:
+with open(report_file, "w") as f:
     rewrite(tests["tests"], values)
     # атрибут indent применен для удобства проверки файла
     json.dump(tests, f, indent=4)
